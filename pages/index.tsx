@@ -10,7 +10,7 @@ import { PostCard, Categories, PostWidget } from '../components'
 //   { title: 'Sample Title 02', excerpt: 'Sample Excerpt 02' },
 // ];
 
-const Home: NextPage = (props) => {
+const Home: NextPage = ({ posts }) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -27,7 +27,7 @@ const Home: NextPage = (props) => {
               </div>
             )) 
           } */}
-          { props.posts.map((post, index) => <PostCard post={post.node} key={index} />) }
+          { posts.map((post, index) => <PostCard post={post.node} key={index} />) }
         </div>
         <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
@@ -43,15 +43,7 @@ const Home: NextPage = (props) => {
 
 export default Home
 
-// export async function getStaticPosts() {
-//   const posts = (await getPosts()) || []
-
-//   return {
-//     props: { posts }
-//   }
-// }
-
-export const getStaticProps: GetStaticProps =async () => {
+export async function getStaticProps() {
   const posts = (await getPosts()) || []
 
   return {
