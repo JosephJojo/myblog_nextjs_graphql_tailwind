@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
+import Image from 'next/image';
 
 const categories = [
     { name: 'Web Development', slug: 'web-dev'},
@@ -13,7 +14,8 @@ const Header = () => {
             <div className='md:float-left block'>
                 <Link href="/">
                     <span className='cursor-pointer font-bold text-4xl text-white'>
-                        Joseph's Blog
+                        {/* Joseph's Blog */}
+                        <Image src='/logo.png' width="170" height="30" ></Image>
                     </span>
                 </Link>
             </div>
