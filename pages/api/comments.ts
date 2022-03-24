@@ -18,7 +18,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(graphcmsToken);
+  // console.log(graphcmsToken); // for debugging purpose
 
   const { name, email, slug, comment } = req.body;
   // res.status(200).json({ name: 'John Doe' })

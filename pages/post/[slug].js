@@ -12,7 +12,7 @@ const PostDetails = ({ post }) => {
         return <Loader />
     }
 
-    console.log(post);
+    // console.log(post); // for debugging purpose
 
     return (
         <div className='container mx-auto px-10 mb-8'>

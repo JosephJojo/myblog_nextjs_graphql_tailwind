@@ -3,7 +3,7 @@ import moment from 'moment'
 import Link from 'next/link'
 
 const PostCard = ({ post }) => {
-  console.log(post);
+  // console.log(post); // for debugging purpose
   return (
     // <div>
     //     {post.title}
