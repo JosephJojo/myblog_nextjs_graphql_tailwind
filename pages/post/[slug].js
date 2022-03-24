@@ -1,8 +1,16 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import { getPosts, getPostDetails } from '../../services';
-import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm } from '../../components';
+import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm, Loader } from '../../components';
 
 const PostDetails = ({ post }) => {
+    const router = useRouter();
+
+    if(router.isFallback) {
+        return <Loader />
+    }
+
     console.log(post);
 
     return (
@@ -40,6 +48,8 @@ export async function getStaticPaths() {
 
     return {
         paths: posts.map(({ node: {slug} }) => ({ params: { slug } })),
-        fallback: false
+        fallback: true
+        // fallback false: statically generate site, but after deployment new blog posts wont be generated
+        //          true: new pages will also generated even after deployment.
     }
 }
