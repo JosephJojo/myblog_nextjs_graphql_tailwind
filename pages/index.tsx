@@ -10,7 +10,7 @@ import { FeaturedPosts } from '../sections';
 //   { title: 'Sample Title 02', excerpt: 'Sample Excerpt 02' },
 // ];
 
-const Home: NextPage = ({ posts }) => {
+const Home = ({ posts }) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
