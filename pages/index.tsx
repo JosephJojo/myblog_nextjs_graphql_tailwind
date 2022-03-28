@@ -12,7 +12,7 @@ import { FeaturedPosts } from '../sections';
 
 const Home = ({ posts }) => {
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-5 md:px-10 2xl:px-28 mb-8">
       <Head>
         <title>Joseph's Blog</title>
         <link rel="icon" href="/favicon.ico" />
