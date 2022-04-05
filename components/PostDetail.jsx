@@ -62,11 +62,12 @@ const PostDetail = ({ post }) => {
           <h1 className='mb-8 text-3xl font-semibold'>{ post.title }</h1>
           {/* {console.log(post.content.raw)} */}
           {/* // for debugging purpose */}
-          {post.content.raw.children.map((typeObj, index) => {
+          {/* {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
 
             return getContentFragment(index, children, typeObj, typeObj.type)
-          })}
+          })} */}
+          <div className='prose max-w-full' dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
         </div>
     </div>
   )
