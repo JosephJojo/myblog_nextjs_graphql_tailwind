@@ -67,7 +67,7 @@ const PostDetail = ({ post }) => {
 
             return getContentFragment(index, children, typeObj, typeObj.type)
           })} */}
-          <div className='prose max-w-full' dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
+          <div className='prose max-w-full text-justify' dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
         </div>
     </div>
   )
