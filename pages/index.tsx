@@ -45,9 +45,10 @@ const Home = ({ posts }) => {
 export default Home
 
 export async function getStaticProps() {
-  const posts = (await getPosts()) || []
+  const data = (await getPosts()) || []
 
   return {
-    props: { posts }
+    props: { posts: data },
+    revalidate: 10, // Regenerate page within 10 seconds after the new request made
   }
 }

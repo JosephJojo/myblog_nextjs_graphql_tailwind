@@ -41,7 +41,8 @@ export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
 
   return {
-    props: { post: data }
+    props: { post: data },
+    revalidate: 10,
   }
 }
 
@@ -49,7 +50,7 @@ export async function getStaticPaths() {
     const posts = await getPosts();
 
     return {
-        paths: posts.map(({ node: {slug} }) => ({ params: { slug } })),
+        paths: posts.map(({ node: {slug} }) => ({ params: { slug } })), // All paths will be rendered during build time. Not god if have many blog posts
         fallback: true
         // fallback false: statically generate site, but after deployment new blog posts wont be generated
         //          true: new pages will also generated even after deployment.
