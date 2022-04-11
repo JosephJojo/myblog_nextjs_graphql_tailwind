@@ -30,7 +30,7 @@ const PostWidget = ({ categories, slug }) => {
             <img src={post.featuredImage.url} alt={post.title} height='60px' width='60px' className='align-middle rounded-full' />
           </div>
           <div className='flex-grow ml-4'>
-            <p className='text-gray-500 font-xs'>{ moment(post.createdAt).format('MMMM DD, YYYY') }</p>
+            <p className='text-gray-500 font-xs'>{ moment(post.createdDate).format('MMMM DD, YYYY') }</p>
             <Link href={`/post/${post.slug}`} key={index} className="text-md">
               { post.title }
             </Link>

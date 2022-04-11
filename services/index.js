@@ -17,6 +17,7 @@ export const getPosts = async () => {
                                         }
                                     }
                                     createdAt
+                                    createdDate
                                     slug
                                     title
                                     excerpt
@@ -51,6 +52,7 @@ export const getPostDetails = async (slug) => {
                                 }
                             }
                             createdAt
+                            createdDate
                             slug
                             title
                             excerpt
@@ -85,6 +87,7 @@ export const getRecentPosts = async () => {
                     url
                 }
                 createdAt
+                createdDate
                 slug
             }
         }
@@ -107,6 +110,7 @@ export const getSimilarPosts = async (categories, slug) => {
                     url
                 }
                 createdAt
+                createdDate
                 slug
             }
         }
