@@ -180,6 +180,7 @@ export const getFeaturedPosts = async () => {
                 title
                 slug
                 createdAt
+                createdDate
             }
         }
     `;
@@ -189,37 +190,39 @@ export const getFeaturedPosts = async () => {
     return result.posts;
 }
 
-export const getAdjacentPosts = async (createdAt, slug) => {
+export const getAdjacentPosts = async (createdDate, slug) => {
     const query = gql`
-      query GetAdjacentPosts($createdAt: DateTime!,$slug:String!) {
+      query GetAdjacentPosts($createdDate: DateTime!,$slug:String!) {
         next:posts(
           first: 1
-          orderBy: createdAt_ASC
-          where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
+          orderBy: createdDate_ASC
+          where: {slug_not: $slug, AND: {createdDate_gte: $createdDate}}
         ) {
           title
           featuredImage {
             url
           }
           createdAt
+          createdDate
           slug
         }
         previous:posts(
           first: 1
-          orderBy: createdAt_DESC
-          where: {slug_not: $slug, AND: {createdAt_lte: $createdAt}}
+          orderBy: createdDate_DESC
+          where: {slug_not: $slug, AND: {createdDate_lte: $createdDate}}
         ) {
           title
           featuredImage {
             url
           }
           createdAt
+          createdDate
           slug
         }
       }
     `;
   
-    const result = await request(graphqlAPI, query, { slug, createdAt });
+    const result = await request(graphqlAPI, query, { slug, createdDate });
   
     return { next: result.next[0], previous: result.previous[0] };
   };
