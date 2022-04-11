@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { getPosts } from '../services';
 
-import { PostCard, Categories, PostWidget } from '../components'
+import { PostCard, Categories, PostWidget, Footer } from '../components'
 import { FeaturedPosts } from '../sections';
 
 // const posts = [
@@ -18,7 +18,7 @@ const Home = ({ posts }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FeaturedPosts />
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 mb-8'>
         <div className='lg:col-span-8 col-span-1'>
           {/* {
             posts.map((post, index) => (
@@ -37,7 +37,7 @@ const Home = ({ posts }) => {
           </div>
         </div>
       </div>
-
+      <Footer />
     </div>
   )
 }
